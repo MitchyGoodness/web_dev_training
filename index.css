@@ -1,0 +1,121 @@
+/* Select all tags with the name div */
+div {
+  /**
+   * Coloring using Hue Saturation Lightness
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/hsl">MDN hsl()</a>
+   */
+  background: linear-gradient(0deg, purple, red, orange);
+  border: solid 1px hsl(from orange h 70% 30%);
+  box-shadow: 5px 5px hsl(from orange h 70% 15%), 7px 10px 2px hsl(from orange h 100% 0%);
+
+  border-radius: 10px;
+  padding: 10px;
+  margin: 15px;
+  width: 100px;
+  height: 50px;
+
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  text-shadow:0px 0px 2px black;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  line-height: 50px;
+
+  animation-name: reset;
+}
+
+@keyframes reset {
+  0% {
+    animation-duration: 5s;
+    rotate: 0deg;
+    translate: 0px;
+    transform: skew(0deg, 0deg)
+  }
+}
+
+div:hover {
+  background: linear-gradient(0deg, hsl(from purple h s calc(l + 10)), hsl(from red h s calc(l + 10)), hsl(from orange h s calc(l + 10)));
+  border: solid 1px hsl(from orange h 80% 35%);
+  box-shadow: 5px 5px hsl(from orange h 80% 20%), 7px 10px 2px hsl(from orange h 100% 7%);
+}
+
+div:active {
+  z-index: 1000;
+  animation-duration: .3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+div.shaker:active {
+  animation-name: shake;
+}
+
+div.spinner:active {
+  animation-name: spin;
+}
+
+div.slider:active {
+  animation-name: slide;
+}
+
+@keyframes spin {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes shake {
+  0% {
+    rotate: 0deg;
+    translate: 0px;
+    transform: skew(0deg, 0deg)
+  }
+
+  33% {
+    rotate: 5deg;
+    translate: 10px;
+    transform: skew(15deg, 15deg)
+  }
+
+  66% {
+    rotate: -5deg;
+    translate: -10px;
+    transform: skew(15deg, -15deg)
+  }
+
+  100% {
+    rotate: 0deg;
+    translate: 0px;
+    transform: skew(0deg, 0deg)
+  }
+}
+
+@keyframes slide {
+  0% {
+    translate: 0px
+  }
+
+  30% {
+    translate: 150px
+  }
+
+  60% {
+    translate: 250px 50px
+  }
+
+  75% {
+    translate: 500px 150px
+  }
+
+  100% {
+    translate: 0px;
+  }
+}
